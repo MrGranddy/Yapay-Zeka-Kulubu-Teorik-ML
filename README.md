@@ -39,7 +39,7 @@ Yapay Zeka Kulübü 2023 Teorik Machine Learning Eğitim Grubu için bir repo
 * Olasılık Teorisi nedir? (Probability Theory) (Lisede gördüğümüz çok basit olasılık ile bu alan arasındaki fark ne?)
 * PDF ve CDF nedir? (Probability Density Function, Cumulative Distribution Function)
 * PMF nedir? (Probability Mass Function)
-* Marcov Zinciri nedir? (Markov Chain)
+* Monte Carlo Estimation nedir?
 
 #### Kaynaklar
 
