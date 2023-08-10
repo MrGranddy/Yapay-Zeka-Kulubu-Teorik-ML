@@ -160,3 +160,89 @@ $E(a, b) = \mathbf{v}^T\mathbf{v} = (Y - \hat{Y})^T(Y - \hat{Y}) = \sum_{i=1}^{N
 
 $x^{(i)} = \begin{bmatrix} x_1^{(i)} \\ x_2^{(i)} \\ \vdots \\ x_D^{(i)} \end{bmatrix}$ olurdu.
 
+Yani artık sadece arsanın alanı değil, arsa ile ilgili çeşit çeşit bilgilere sahibiz. Peki aynı şekilde tahmin fonksiyonumuzu da genelleyemez miyiz? $g(x) = a \times x + b$ yerine:
+
+$g(x) = w_1 \times x_1 + w_2 \times x_2 + ... + w_D \times x_D + b$
+
+desek, her bir değere karşılık bir katsayı olan aslında oldukça basit bir fonksiyon taslağımız olurdu. Tek bir çarpım yapmak yerine $D$ çarpım yapıp toplamaktan başka hiçbir fark yok. $g(x) = a \times x + b$'de $x$'e bağlı olmayan $b$'yi de olduğu gibi bıraktık. Yine matris çarpımı notasyonumuzu kullanarak bunu da basitleştirebiliriz:
+
+$\mathbf{w} = \begin{bmatrix} w_1 \\ w_2 \\ \vdots \\ w_D \end{bmatrix}$ ve $\mathbf{x} = \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_D \end{bmatrix}$ dersek:
+
+$g(\mathbf{x}) = \mathbf{w}^T\mathbf{x} + b$ olur.
+
+Şimdi bu fonksiyonu kullanarak $\hat{y}^{(i)}$'yi yazalım:
+
+$\hat{y}^{(i)} = g(x^{(i)}) = \mathbf{w}^T\mathbf{x}^{(i)} + b$
+
+Bu noktada $b$ bizler için önemli bir katkı, fakat işlemleri biraz da olsa karıştıracak, o yüzden şimdilik onu işin içinden çıkartalım, devamında $b$'yi çıkarmadan yapmayı da size bırakıyorum. Şimdi $\hat{y}^{(i)}$'yi yazalım:
+
+$\hat{y}^{(i)} = \mathbf{w}^T\mathbf{x}^{(i)}$ şimdi $\hat{Y}$ vektörünü de tekrar elden geçirelim:
+
+$\hat{Y} = \begin{bmatrix} \hat{y}^{(1)} \\ \hat{y}^{(2)} \\ \vdots \\ \hat{y}^{(N)} \end{bmatrix} = \begin{bmatrix} \mathbf{w}^T\mathbf{x}^{(1)} \\ \mathbf{w}^T\mathbf{x}^{(2)} \\ \vdots \\ \mathbf{w}^T\mathbf{x}^{(N)} \end{bmatrix}$
+
+Bu noktada aslında her şeyi çok çok daha basitleştireceğimiz bir adım var. Bu adım matris çarpımına aşina olanlarınız için bariz olabilir, ama değilse de sorun değil, bir sonraki adım sizin için açık değilse bunu çıkarmayı da size bir ödev olarak bırakıyorum :)
+
+Öyle bir $X$ matrisi tanımlayabiliriz ki:
+
+$X = \begin{bmatrix} \mathbf{x}^{(1)} \\ \mathbf{x}^{(2)} \\ \vdots \\ \mathbf{x}^{(N)} \end{bmatrix}$ burada her bir $\mathbf{x}^{(i)}$ birer satır vektörü. Bu durumda $\hat{Y}$'yi şu şekilde yazabiliriz:
+
+$\hat{Y} = X\mathbf{w}$
+
+Bütün bu zorlu uğraşların ve emeklerimizin karşılığında, genel $N$ ve $D$ için, hayal etmeye bile cüret edemeyeceğimiz basitlikte bir ifade elde ettik, son olarak hata fonksiyonumuzu da bu ifadeyi kullanarak yazalım:
+
+$E(\mathbf{w}) = (Y - \hat{Y})^T(Y - \hat{Y}) = (Y - X\mathbf{w})^T(Y - X\mathbf{w}) = \sum_{i=1}^{N} (y^{(i)} - \mathbf{w}^T\mathbf{x}^{(i)})^2$
+
+Fark ettiğiniz gibi artık __hata fonksiyonu__ $a$ ve $b$'ye değil, $\mathbf{w}$'ye bağlı, çünkü artık $g(x) = \mathbf{w}^T\mathbf{x}$ ve fonksiyonu değiştiren parametrelerimiz $\mathbf{w}$ vektöründe. Bununla da sınırlı kalmayalım, $(Y - X\mathbf{w})^T(Y - X\mathbf{w})$ ifadesini açalım:
+
+$E(\mathbf{w}) = (Y - X\mathbf{w})^T(Y - X\mathbf{w}) = Y^TY - Y^TX\mathbf{w} - \mathbf{w}^TX^TY + \mathbf{w}^TX^TX\mathbf{w}$
+
+Burada kullandığımız kurallar:
+
+1. $(AB)^T = B^TA^T$ hatta $(ABC)^T = C^TB^TA^T$ şeklinde genelleyebiliriz
+2. $(A + B)^T = A^T + B^T$
+
+İşimizi bir tık daha kolaylaştırmak için bir numara daha var, hatırlarsanız $E(\mathbf{w})$ bize bir __hata__ değeri döndürüyor ve bu değer sadece skaler bir reel sayı. Bu da demek oluyor ki $E(\mathbf{w})$'yi elde etmek için topladığımız $4$ ayrı terim de en nihayetinde birer skaler olmak zorunda. Skaler bir sayı için şaşırtıcı olmayacak şekilde transpozu kendisine eşittir, örneğin $5^T = 5$. O halde $E(\mathbf{w})$'yi oluşturan her bir terimin transpozu kendisine eşit, burada görmüş olabileceğiniz üzere $(\mathbf{w}^TX^TY)^T = Y^TX\mathbf{w}$ ve bu terimden zaten bir tane mevcut, o halde ikisini toplayıp __hata fonksiyonu__'nu son haline getirebiliriz:
+
+$E(\mathbf{w}) = (Y - X\mathbf{w})^T(Y - X\mathbf{w})$
+
+$= Y^TY - Y^TX\mathbf{w} - \mathbf{w}^TX^TY + \mathbf{w}^TX^TX\mathbf{w}$
+
+$= Y^TY - Y^TX\mathbf{w} - (\mathbf{w}^TX^TY)^T + \mathbf{w}^TX^TX\mathbf{w}$
+
+$= Y^TY - Y^TX\mathbf{w} - Y^TX\mathbf{w} + \mathbf{w}^TX^TX\mathbf{w}$
+
+$= Y^TY - 2Y^TX\mathbf{w} + \mathbf{w}^TX^TX\mathbf{w}$
+
+Yani son olarak elimizdeki her şeyi özetlemek gerekirse:
+
+$E(\mathbf{w}) = Y^TY - 2Y^TX\mathbf{w} + \mathbf{w}^TX^TX\mathbf{w}$
+
+ve eğer $\dfrac{\partial E(\mathbf{w})}{\partial \mathbf{w}} = 0$'ı çözersek. Buradan hatayı minimum yapan $\mathbf{w}^*$'yi bulmuş oluruz. Üstündeki * (asterisk) de artık bunun herhangi bir $\mathbf{w}$ değil, hatayı minimum yapan $\mathbf{w}$ olduğunu belirtmek için kullanılan bir işaret.
+
+Elbette $\mathbf{w}^*$, $Y$ ve $X$'e bağlı bir değer çıkacak. Bu noktada işin asıl keyifli tarafı olan optimal $\mathbf{w}^*$'yi bulma işini size bırakıyorum. Evet başka korkutucu gözükebilir ama bir kere başardığınızda bağımlısı olacaksınız. Tabii ki sizi bu konuda yalnız bırakmamak için birkaç ipucu ve kaynak ile işi noktalıyorum. Bu aşamadan sonra ise belki daha da keyifli olacak olan ellerimizle hazırladığımız bu metodun kodunu yazacağız ve sonuçları göreceğiz, bunun detayları için Whatsapp grubunu takipte kalın :)
+
+## İpuçları
+
+$\dfrac{\partial E(\mathbf{w})}{\partial \mathbf{w}}$ demek, skaler değerli bir fonksiyonun bir vektöre göre gradyanı demek.
+
+Gradyanın ne olduğu ve nasıl alındığı ile ilgili kaynak: https://www.khanacademy.org/math/multivariable-calculus/multivariable-derivatives/partial-derivative-and-gradient-articles/a/the-gradient
+
+Fiziksel açıklamaları geçip direkt olarak nasıl hesaplandığına bakabilirsiniz, aslında çok basit $\mathbf{w}$'deki her bir eleman için, tek tek o elemana göre tüm ifadenin türevini alın ve bunları bir vektör olarak alt alta yazın, yani:
+
+$\dfrac{\partial E(\mathbf{w})}{\partial \mathbf{w}} = \begin{bmatrix} \dfrac{\partial E(\mathbf{w})}{\partial w_1} \\ \dfrac{\partial E(\mathbf{w})}{\partial w_2} \\ \vdots \\ \dfrac{\partial E(\mathbf{w})}{\partial w_D} \end{bmatrix}$
+
+Tabii ki iş bunla bitmeyecek, gradyan da türev gibi toplamaya dağılabilen bir işlem o yüzden işi biraz basitleştirmek için, şunu da size verebilirim:
+
+$\dfrac{\partial E(\mathbf{w})}{\partial \mathbf{w}} = \dfrac{\partial (Y^TY - 2Y^TX\mathbf{w} + \mathbf{w}^TX^TX\mathbf{w})}{\partial \mathbf{w}} = \dfrac{\partial (Y^TY)}{\partial \mathbf{w}} - \dfrac{\partial (2Y^TX\mathbf{w})}{\partial \mathbf{w}} + \dfrac{\partial (\mathbf{w}^TX^TX\mathbf{w})}{\partial \mathbf{w}}$
+
+Biraz daha ipucu isterseniz her bir terimi toplama sembolü ile yazıp daha açık şekilde görmeyi deneyin, unutmayın $\mathbf{w}_1$'e göre türev alırken diğer tüm $\mathbf{w}_2$, $\mathbf{w}_3$, ..., $\mathbf{w}_D$ değerleri sabit gibi davranacak. Yani $\mathbf{w}$ içerse bile $\mathbf{w}_1$ içermeyen her şeyin türevi $0$ olacak, aynı şekilde her bir $\mathbf{w}_i$'ye göre türev alırken diğer tüm $\mathbf{w}_j$'ler sabit gibi davranacak.
+
+Toplama sembolü olarak nasıl yazarım derseniz bu konuda bir ipucu:
+
+$Y^TX\mathbf{w} = \sum_{i=1}^{N} \sum_{j=1}^{D} Y_i \times \mathbf{w}_j \times X_{ij}$
+
+Eğer illa ben uğraşmak istemiyorum derseniz, asla ama asla tavsiye etmemek ile beraber, bu linkten hangi terimin türevinin nasıl alındığına bakabilirsiniz: https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf
+
+En sonunda hesapladığınız gradyanı $\mathbf{0}$'a eşitleyip $\mathbf{w}^*$ bulmayı unutmayın :)
+
+Herkese kolaylıklar.
