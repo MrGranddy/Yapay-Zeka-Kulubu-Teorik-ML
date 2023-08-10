@@ -246,7 +246,8 @@ $E(\mathbf{w}) = Y^TY - 2Y^TX\mathbf{w} + \mathbf{w}^TX^TX\mathbf{w}$
 
 ve eğer $\dfrac{\partial E(\mathbf{w})}{\partial \mathbf{w}} = 0$'ı çözersek. Buradan hatayı minimum yapan $\mathbf{w}^*$'yi bulmuş oluruz. Üstündeki * (asterisk) de artık bunun herhangi bir $\mathbf{w}$ değil, hatayı minimum yapan $\mathbf{w}$ olduğunu belirtmek için kullanılan bir işaret.
 
-Elbette $\mathbf{w}^*$, $Y$ ve $X$'e bağlı bir değer çıkacak. Bu noktada işin asıl keyifli tarafı olan optimal $\mathbf{w}^*$'yi bulma işini size bırakıyorum. Evet başka korkutucu gözükebilir ama bir kere başardığınızda bağımlısı olacaksınız. Tabii ki sizi bu konuda yalnız bırakmamak için birkaç ipucu ve kaynak ile işi noktalıyorum. Bu aşamadan sonra ise belki daha da keyifli olacak olan ellerimizle hazırladığımız bu metodun kodunu yazacağız ve sonuçları göreceğiz, bunun detayları için Whatsapp grubunu takipte kalın :)
+Elbette $\mathbf{w}^*$, $Y$ ve $X$'e bağlı bir değer çıkacak. Bu noktada işin asıl keyifli tarafı olan optimal 
+$\mathbf{w}^*$'yi bulma işini size bırakıyorum. Evet başka korkutucu gözükebilir ama bir kere başardığınızda bağımlısı olacaksınız. Tabii ki sizi bu konuda yalnız bırakmamak için birkaç ipucu ve kaynak ile işi noktalıyorum. Bu aşamadan sonra ise belki daha da keyifli olacak olan ellerimizle hazırladığımız bu metodun kodunu yazacağız ve sonuçları göreceğiz, bunun detayları için Whatsapp grubunu takipte kalın :)
 
 ## İpuçları
 
