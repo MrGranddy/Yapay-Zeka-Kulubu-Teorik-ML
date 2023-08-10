@@ -160,7 +160,7 @@ $\mathbf{v} \cdot \mathbf{v} = \mathbf{v}^T\mathbf{v} = ∑_{i=1}^{N} (y^{(i)} -
 Hatta ve hatta $Y$ ve $\hat{Y}$ olmak üzere iki vektörümüz olsa:
 
 ```math
-Y = \begin{bmatrix} y^{(1)} \\ y^{(2)} \\ \vdots \\ y^{(N)} \end{bmatrix}$ ve $\hat{Y} = \begin{bmatrix} \hat{y}^{(1)} \\ \hat{y}^{(2)} \\ \vdots \\ \hat{y}^{(N)} \end{bmatrix}
+Y = \begin{bmatrix} y^{(1)} \\ y^{(2)} \\ \vdots \\ y^{(N)} \end{bmatrix}, \hat{Y} = \begin{bmatrix} \hat{y}^{(1)} \\ \hat{y}^{(2)} \\ \vdots \\ \hat{y}^{(N)} \end{bmatrix}
 ```
 
 $\mathbf{v} = Y - \hat{Y}$ yani:
