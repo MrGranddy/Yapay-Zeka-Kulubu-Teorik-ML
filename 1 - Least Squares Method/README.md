@@ -132,7 +132,9 @@ $E(a, b) = ∑_{i=1}^{N} (y^{(i)} - \hat{y}^{(i)})^2$.
 
 Elimizde oldukça yalın bir ifade var. Bunu daha da yalınlaştırmanın bir yolu olabilir mi? Mesela şu toplam sembolünden bir kurtulsak? Hafızanızı tazelemek için bir örnek düşünelim, elimde bir vektör olsun:
 
-$\mathbf{v} = \begin{bmatrix} a \\ b \\ c \\ d \\ e \end{bmatrix}$
+```math
+\mathbf{v} = \begin{bmatrix} a \\ b \\ c \\ d \\ e \end{bmatrix}
+```
 
 Bu vektörü kendisi ile skaler çarpım yaparsak ne olur?
 
@@ -140,13 +142,18 @@ $\mathbf{v} \cdot \mathbf{v} = \mathbf{v}^T\mathbf{v} = a^2 + b^2 + c^2 + d^2 + 
 
 Yani her bir elemanın karelerinin toplamı. O halde benim elimde elemanları $y^{(i)} - \hat{y}^{(i)}$ olan bir vektör olsa:
 
-$\mathbf{v} = \begin{bmatrix} y^{(1)} - \hat{y}^{(1)} \\ y^{(2)} - \hat{y}^{(2)} \\ \vdots \\ y^{(N)} - \hat{y}^{(N)} \end{bmatrix}$ ve bu vektörü kendisi ile skaler çarpsam:
+```math
+\mathbf{v} = \begin{bmatrix} y^{(1)} - \hat{y}^{(1)} \\ y^{(2)} - \hat{y}^{(2)} \\ \vdots \\ y^{(N)} - \hat{y}^{(N)} \end{bmatrix}
+```
+ve bu vektörü kendisi ile skaler çarpsam:
 
 $\mathbf{v} \cdot \mathbf{v} = \mathbf{v}^T\mathbf{v} = ∑_{i=1}^{N} (y^{(i)} - \hat{y}^{(i)})^2$ 🤯🤯🤯🤯
 
 Hatta ve hatta $Y$ ve $\hat{Y}$ olmak üzere iki vektörümüz olsa:
 
-$Y = \begin{bmatrix} y^{(1)} \\ y^{(2)} \\ \vdots \\ y^{(N)} \end{bmatrix}$ ve $\hat{Y} = \begin{bmatrix} \hat{y}^{(1)} \\ \hat{y}^{(2)} \\ \vdots \\ \hat{y}^{(N)} \end{bmatrix}$
+```math
+Y = \begin{bmatrix} y^{(1)} \\ y^{(2)} \\ \vdots \\ y^{(N)} \end{bmatrix}$ ve $\hat{Y} = \begin{bmatrix} \hat{y}^{(1)} \\ \hat{y}^{(2)} \\ \vdots \\ \hat{y}^{(N)} \end{bmatrix}
+```
 
 $\mathbf{v} = Y - \hat{Y}$ yani:
 
@@ -166,7 +173,10 @@ $g(x) = w_1 \times x_1 + w_2 \times x_2 + ... + w_D \times x_D + b$
 
 desek, her bir değere karşılık bir katsayı olan aslında oldukça basit bir fonksiyon taslağımız olurdu. Tek bir çarpım yapmak yerine $D$ çarpım yapıp toplamaktan başka hiçbir fark yok. $g(x) = a \times x + b$'de $x$'e bağlı olmayan $b$'yi de olduğu gibi bıraktık. Yine matris çarpımı notasyonumuzu kullanarak bunu da basitleştirebiliriz:
 
-$\mathbf{w} = \begin{bmatrix} w_1 \\ w_2 \\ \vdots \\ w_D \end{bmatrix}$ ve $\mathbf{x} = \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_D \end{bmatrix}$ dersek:
+```math
+\mathbf{w} = \begin{bmatrix} w_1 \\ w_2 \\ \vdots \\ w_D \end{bmatrix}$ ve $\mathbf{x} = \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_D \end{bmatrix}
+```
+ dersek:
 
 $g(\mathbf{x}) = \mathbf{w}^T\mathbf{x} + b$ olur.
 
@@ -178,13 +188,19 @@ Bu noktada $b$ bizler için önemli bir katkı, fakat işlemleri biraz da olsa k
 
 $\hat{y}^{(i)} = \mathbf{w}^T\mathbf{x}^{(i)}$ şimdi $\hat{Y}$ vektörünü de tekrar elden geçirelim:
 
-$\hat{Y} = \begin{bmatrix} \hat{y}^{(1)} \\ \hat{y}^{(2)} \\ \vdots \\ \hat{y}^{(N)} \end{bmatrix} = \begin{bmatrix} \mathbf{w}^T\mathbf{x}^{(1)} \\ \mathbf{w}^T\mathbf{x}^{(2)} \\ \vdots \\ \mathbf{w}^T\mathbf{x}^{(N)} \end{bmatrix}$
+```math
+\hat{Y} = \begin{bmatrix} \hat{y}^{(1)} \\ \hat{y}^{(2)} \\ \vdots \\ \hat{y}^{(N)} \end{bmatrix} = \begin{bmatrix} \mathbf{w}^T\mathbf{x}^{(1)} \\ \mathbf{w}^T\mathbf{x}^{(2)} \\ \vdots \\ \mathbf{w}^T\mathbf{x}^{(N)} \end{bmatrix}
+```
 
 Bu noktada aslında her şeyi çok çok daha basitleştireceğimiz bir adım var. Bu adım matris çarpımına aşina olanlarınız için bariz olabilir, ama değilse de sorun değil, bir sonraki adım sizin için açık değilse bunu çıkarmayı da size bir ödev olarak bırakıyorum :)
 
 Öyle bir $X$ matrisi tanımlayabiliriz ki:
 
-$X = \begin{bmatrix} \mathbf{x}^{(1)} \\ \mathbf{x}^{(2)} \\ \vdots \\ \mathbf{x}^{(N)} \end{bmatrix}$ burada her bir $\mathbf{x}^{(i)}$ birer satır vektörü. Bu durumda $\hat{Y}$'yi şu şekilde yazabiliriz:
+```math
+X = \begin{bmatrix} \mathbf{x}^{(1)} \\ \mathbf{x}^{(2)} \\ \vdots \\ \mathbf{x}^{(N)} \end{bmatrix}$ burada her bir $\mathbf{x}^{(i)}
+```
+
+birer satır vektörü. Bu durumda $\hat{Y}$'yi şu şekilde yazabiliriz:
 
 $\hat{Y} = X\mathbf{w}$
 
@@ -229,7 +245,9 @@ Gradyanın ne olduğu ve nasıl alındığı ile ilgili kaynak: https://www.khan
 
 Fiziksel açıklamaları geçip direkt olarak nasıl hesaplandığına bakabilirsiniz, aslında çok basit $\mathbf{w}$'deki her bir eleman için, tek tek o elemana göre tüm ifadenin türevini alın ve bunları bir vektör olarak alt alta yazın, yani:
 
-$\dfrac{\partial E(\mathbf{w})}{\partial \mathbf{w}} = \begin{bmatrix} \dfrac{\partial E(\mathbf{w})}{\partial w_1} \\ \dfrac{\partial E(\mathbf{w})}{\partial w_2} \\ \vdots \\ \dfrac{\partial E(\mathbf{w})}{\partial w_D} \end{bmatrix}$
+```math
+\dfrac{\partial E(\mathbf{w})}{\partial \mathbf{w}} = \begin{bmatrix} \dfrac{\partial E(\mathbf{w})}{\partial w_1} \\ \dfrac{\partial E(\mathbf{w})}{\partial w_2} \\ \vdots \\ \dfrac{\partial E(\mathbf{w})}{\partial w_D} \end{bmatrix}
+```math
 
 Tabii ki iş bunla bitmeyecek, gradyan da türev gibi toplamaya dağılabilen bir işlem o yüzden işi biraz basitleştirmek için, şunu da size verebilirim:
 
