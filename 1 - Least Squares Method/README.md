@@ -185,7 +185,7 @@ $g(x) = w_1 \times x_1 + w_2 \times x_2 + ... + w_D \times x_D + b$
 desek, her bir değere karşılık bir katsayı olan aslında oldukça basit bir fonksiyon taslağımız olurdu. Tek bir çarpım yapmak yerine $D$ çarpım yapıp toplamaktan başka hiçbir fark yok. $g(x) = a \times x + b$'de $x$'e bağlı olmayan $b$'yi de olduğu gibi bıraktık. Yine matris çarpımı notasyonumuzu kullanarak bunu da basitleştirebiliriz:
 
 ```math
-\mathbf{w} = \begin{bmatrix} w_1 \\ w_2 \\ \vdots \\ w_D \end{bmatrix} ve \mathbf{x} = \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_D \end{bmatrix}
+\mathbf{w} = \begin{bmatrix} w_1 \\ w_2 \\ \vdots \\ w_D \end{bmatrix}, \mathbf{x} = \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_D \end{bmatrix}
 ```
  dersek:
 
