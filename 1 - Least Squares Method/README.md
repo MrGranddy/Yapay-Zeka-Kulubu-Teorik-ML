@@ -84,11 +84,11 @@ Diyelim ki $\mathcal{D} = \{x^{(i)}\}_{i=1}^{100}, x^{(i)} \in \mathbb{R}$ veri 
 
 O zaman şöyle bir şey yapalım, her bir $i$ için $y^{(i)} - \hat{y}^{(i)}$ hesaplayalım ve bunları toplayalım, $g(x)$'in kusursuz çalıştığı senaryoda bu değer gerçekten de 0 gelirdi. Ama burada bir şey ters, değerlerin eşit olmadığı senaryoda $\hat{y}^{(i)}$ büyüdükçe toplam değer küçülür, yani hata azalır, ama durum bu değil, çünkü $\hat{y}^{(i)}$ büyüyorsa $y^{(i)}$ ile arasındaki fark açılıyor demek! Bu yüzden $y^{(i)} - \hat{y}^{(i)}$'nin mutlak değerini alıp toplamak daha mantıklı, yani $|y^{(i)} - \hat{y}^{(i)}|$, işte bu bize gerçekten de tahmin edilen fiyatlar ve gerçek fiyatların birbirine ne kadar benzediğini gösterir. Benzerlerse değer küçük olur, değillerse değer büyük olur. Ve fark edeceğiniz üzere bizim eşde etmek istediğimiz __hata fonksiyonu__'nun tam olarak bunu yapması gerekiyor! O zaman fonksiyonumuzu bulduk.
 
-$E = \sum_{i=1}^{100} |y^{(i)} - \hat{y}^{(i)}|$
+$E = ∑_{i=1}^{100} |y^{(i)} - \hat{y}^{(i)}|$
 
 Burada $E$ __error__'ın baş harfinden geliyor. Peki şimdi hatırlayın $g(x) = a \times x + b$ formunda demiştik, yani her farklı $a$ ve $b$ değeri için $g(x)$ farklı bir doğruyu ifade ediyor. Biz bu farklı doğrular arasında bize en düşük hatayı veren $g(x)$'i istiyoruz. O zaman hata fonksiyonunu $a$ ve $b$ cinsinden yazabiliriz:
 
-$E(a, b) = \sum_{i=1}^{100} |y^{(i)} - (a \times x^{(i)} + b)|$
+$E(a, b) = ∑_{i=1}^{100} |y^{(i)} - (a \times x^{(i)} + b)|$
 
 Burada $E$'nin yanına $a$ ve $b$ yazdık, çünkü $E$'nin $a$ ve $b$'ye bağlı olduğunu belirtmek istiyoruz, en nihayetinde datamız yani arsalara karşılık gelen alan ve fiyat ikilileri değişmiyor, değişen şey $a$ ve $b$ yani datamıza uygun olacak şekilde değiştireceğimiz değişkenler.
 
@@ -122,13 +122,13 @@ Tamamen aynı mantık $E(a,b)$ fonksiyonumuz için de geçerli. Ama yine önüm�
 
 Hatırlarsanız mutlak değeri kullanma sebebimiz rastgele farklara bakmaktansa iki değerin birbirine ne kadar uzak olduğunu ölçmekti, bunu yapmak için illa mutlak değer kullanmak zorunda değiliz, şunu düşünün $(y^{(i)} - \hat{y}^{(i)})^2$ deseydik, yine istediğimiz özellikleri sağlamaz mıydı? Evet sağlardı, çünkü $(y^{(i)} - \hat{y}^{(i)})^2$'nin değeri her zaman pozitif ve değerler birbirine ne kadar uzaksa o kadar büyük olur. Bu yüzden __Least Squares Method__'da __squares__ yani __kareler__ kullanılıyor. O zaman __hata fonksiyonu__'muzu buna göre güncelleyelim:
 
-$E(a, b) = \sum_{i=1}^{100} (y^{(i)} - (a \times x^{(i)} + b))^2$.
+$E(a, b) = ∑_{i=1}^{100} (y^{(i)} - (a \times x^{(i)} + b))^2$.
 
 Peki, teoride bu ifadenin türevini alabileceğimizi biliyoruz, daha sonrasında $a$'ya ve $b$'ye göre türevleri $0$'a eşitlememiz gerektiğini de biliyoruz. Aslında şu an elinize kağıt kalemi alıp $a$ ve $b$ için $x^{(i)}$ ve $y^{(i)}$'e göre birer denklem çıkarabilirsiniz, fakat bu bizi çok uğraştırır. Gelin bir adım geri gidelim:
 
-$E(a, b) = \sum_{i=1}^{100} (y^{(i)} - \hat{y}^{(i)})^2$ demiştik. Hadi bir adım daha geri gidip $100$ yerine $N$ yazalım:
+$E(a, b) = ∑_{i=1}^{100} (y^{(i)} - \hat{y}^{(i)})^2$ demiştik. Hadi bir adım daha geri gidip $100$ yerine $N$ yazalım:
 
-$E(a, b) = \sum_{i=1}^{N} (y^{(i)} - \hat{y}^{(i)})^2$.
+$E(a, b) = ∑_{i=1}^{N} (y^{(i)} - \hat{y}^{(i)})^2$.
 
 Elimizde oldukça yalın bir ifade var. Bunu daha da yalınlaştırmanın bir yolu olabilir mi? Mesela şu toplam sembolünden bir kurtulsak? Hafızanızı tazelemek için bir örnek düşünelim, elimde bir vektör olsun:
 
@@ -142,7 +142,7 @@ Yani her bir elemanın karelerinin toplamı. O halde benim elimde elemanları $y
 
 $\mathbf{v} = \begin{bmatrix} y^{(1)} - \hat{y}^{(1)} \\ y^{(2)} - \hat{y}^{(2)} \\ \vdots \\ y^{(N)} - \hat{y}^{(N)} \end{bmatrix}$ ve bu vektörü kendisi ile skaler çarpsam:
 
-$\mathbf{v} \cdot \mathbf{v} = \mathbf{v}^T\mathbf{v} = \sum_{i=1}^{N} (y^{(i)} - \hat{y}^{(i)})^2$ 🤯🤯🤯🤯
+$\mathbf{v} \cdot \mathbf{v} = \mathbf{v}^T\mathbf{v} = ∑_{i=1}^{N} (y^{(i)} - \hat{y}^{(i)})^2$ 🤯🤯🤯🤯
 
 Hatta ve hatta $Y$ ve $\hat{Y}$ olmak üzere iki vektörümüz olsa:
 
@@ -150,11 +150,11 @@ $Y = \begin{bmatrix} y^{(1)} \\ y^{(2)} \\ \vdots \\ y^{(N)} \end{bmatrix}$ ve $
 
 $\mathbf{v} = Y - \hat{Y}$ yani:
 
-$\mathbf{v}^T\mathbf{v} = (Y - \hat{Y})^T(Y - \hat{Y}) = \sum_{i=1}^{N} (y^{(i)} - \hat{y}^{(i)})^2$ 🤯🤯🤯🤯🤯🤯
+$\mathbf{v}^T\mathbf{v} = (Y - \hat{Y})^T(Y - \hat{Y}) = ∑_{i=1}^{N} (y^{(i)} - \hat{y}^{(i)})^2$ 🤯🤯🤯🤯🤯🤯
 
 Toparlarsak:
 
-$E(a, b) = \mathbf{v}^T\mathbf{v} = (Y - \hat{Y})^T(Y - \hat{Y}) = \sum_{i=1}^{N} (y^{(i)} - \hat{y}^{(i)})^2$
+$E(a, b) = \mathbf{v}^T\mathbf{v} = (Y - \hat{Y})^T(Y - \hat{Y}) = ∑_{i=1}^{N} (y^{(i)} - \hat{y}^{(i)})^2$
 
 Şimdi işleri bir adım daha ileriye taşıyalım, en başta hata fonksiyonumuzun $a$ ve $b$'ye bağlı olmasının sebebi, $g(x) = a \times x + b$ olmasıydı. Bu da en başa dönersek $D$ yani vektörlerimizin boyutu $1$ olduğu içindi. Peki ya $D$'yi de tekrar eski haline getirseydik, mesela her $x^{(i)} \in \mathbb{R}^D$ yani $D$ boyutlu birer vektör olsaydı? O zaman genel senaryoda:
 
@@ -190,7 +190,7 @@ $\hat{Y} = X\mathbf{w}$
 
 Bütün bu zorlu uğraşların ve emeklerimizin karşılığında, genel $N$ ve $D$ için, hayal etmeye bile cüret edemeyeceğimiz basitlikte bir ifade elde ettik, son olarak hata fonksiyonumuzu da bu ifadeyi kullanarak yazalım:
 
-$E(\mathbf{w}) = (Y - \hat{Y})^T(Y - \hat{Y}) = (Y - X\mathbf{w})^T(Y - X\mathbf{w}) = \sum_{i=1}^{N} (y^{(i)} - \mathbf{w}^T\mathbf{x}^{(i)})^2$
+$E(\mathbf{w}) = (Y - \hat{Y})^T(Y - \hat{Y}) = (Y - X\mathbf{w})^T(Y - X\mathbf{w}) = ∑_{i=1}^{N} (y^{(i)} - \mathbf{w}^T\mathbf{x}^{(i)})^2$
 
 Fark ettiğiniz gibi artık __hata fonksiyonu__ $a$ ve $b$'ye değil, $\mathbf{w}$'ye bağlı, çünkü artık $g(x) = \mathbf{w}^T\mathbf{x}$ ve fonksiyonu değiştiren parametrelerimiz $\mathbf{w}$ vektöründe. Bununla da sınırlı kalmayalım, $(Y - X\mathbf{w})^T(Y - X\mathbf{w})$ ifadesini açalım:
 
@@ -239,7 +239,7 @@ Biraz daha ipucu isterseniz her bir terimi toplama sembolü ile yazıp daha aç�
 
 Toplama sembolü olarak nasıl yazarım derseniz bu konuda bir ipucu:
 
-$Y^TX\mathbf{w} = \sum_{i=1}^{N} \sum_{j=1}^{D} Y_i \times \mathbf{w}_j \times X_{ij}$
+$Y^TX\mathbf{w} = ∑_{i=1}^{N} ∑_{j=1}^{D} Y_i \times \mathbf{w}_j \times X_{ij}$
 
 Eğer illa ben uğraşmak istemiyorum derseniz, asla ama asla tavsiye etmemek ile beraber, bu linkten hangi terimin türevinin nasıl alındığına bakabilirsiniz: https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf
 
