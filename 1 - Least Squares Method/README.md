@@ -208,7 +208,13 @@ Bu noktada aslında her şeyi çok çok daha basitleştireceğimiz bir adım var
 Öyle bir $X$ matrisi tanımlayabiliriz ki:
 
 ```math
-X = \begin{bmatrix} \mathbf{x}^{(1)} \\ \mathbf{x}^{(2)} \\ \vdots \\ \mathbf{x}^{(N)} \end{bmatrix}$ burada her bir $\mathbf{x}^{(i)}
+X = \begin{bmatrix} \mathbf{x}^{(1)} \\ \mathbf{x}^{(2)} \\ \vdots \\ \mathbf{x}^{(N)} \end{bmatrix}
+```
+
+burada her bir
+
+```math
+\mathbf{x}^{(i)}
 ```
 
 birer satır vektörü. Bu durumda $\hat{Y}$'yi şu şekilde yazabiliriz:
