@@ -42,7 +42,9 @@ Her bir vektörden sadece tek bir elemanı ayırdığımız için yeni kümemizd
 
 Artık elimizde iki adet küme var:
 
-$\mathcal{D} = \{x^{(i)}\}_{i=1}^{N}, x^{(i)} \in \mathbb{R}^{D}$ ve $\mathcal{Y} = \{y^{(i)}\}_{i=1}^{N}, y^{(i)} \in \mathbb{R}$
+$\mathcal{D} = \{x^{(i)}\}_{i=1}^{N}, x^{(i)} \in \mathbb{R}^{D}$ ve
+
+$\mathcal{Y} = \{y^{(i)}\}_{i=1}^{N}, y^{(i)} \in \mathbb{R}$
 
 İşte bu yüzden $D$ yerine $D+1$ demiştim :) Karışık görünüyor olabilir ama aslında çok basit, elimizdeki veri kümesini iki parçaya ayırdık, bir tanesi özellikleri içeriyor, diğeri ise fiyatları içeriyor ve elbette $x^{(i)}$ özelliklerine karşılık gelen $y^{(i)}$ fiyatı ile eşleşiyor, yani $x^{(1)}$ özelliklerine sahip arsanın fiyatı $y^{(1)}$, $x^{(2)}$ özelliklerine sahip arsanın fiyatı $y^{(2)}$ ve böyle devam ediyor.
 
@@ -54,7 +56,9 @@ Değişken isimleri ve bir tık karmaşık bazı matematiksel zamazingolar ile k
 
 Bu veri kümesini $\mathcal{D} = \{x^{(i)}\}_{i=1}^{100}, x^{(i)} \in \mathbb{R}^2$ şeklinde tanımlamıştık, az önce yaptığımız gibi iki parçaya ayırdığımızda ise elimizde:
 
-$\mathcal{D} = \{x^{(i)}\}_{i=1}^{100}, x^{(i)} \in \mathbb{R}$ ve $\mathcal{Y} = \{y^{(i)}\}_{i=1}^{100}, y^{(i)} \in \mathbb{R}$
+$\mathcal{D} = \{x^{(i)}\}_{i=1}^{100}, x^{(i)} \in \mathbb{R}$ ve
+
+$\mathcal{Y} = \{y^{(i)}\}_{i=1}^{100}, y^{(i)} \in \mathbb{R}$
 
 şeklinde iki küme oluyor. Yani bir küme sadece arsa alanlarını içerirken, diğeri ise sadece fiyatları içeriyor. Artık problemimizi daha kolay bir şekilde ifade edebiliriz, herhangi bir $x^{(i)}$ için $y^{(i)}$'yi tahmin etmek istiyoruz, yani herhangi bir arsanın alanı bilindiğinde fiyatını tahmin etmek istiyoruz. Tabii ki $x^{(i)}$ 1 boyutlu olmak zorunda değildi, alan bilgisinin yanında daha bir sürü özelliği de içinde barındırabilirdi, bu yüzden genel senaryo için $x^{(i)} \in \mathbb{R}^D$ diyoruz. Ama eğer bu örnekte $D$'yi 1'den büyük bir sayı belirleseydik, görselleştirmemiz oldukça zorlaşacaktı, hadi 2 olsa yine bir şekilde yapardık ama 3'ten sonrasını görsel olarak kafasında canlandıran varsa helal olsun :) (Unutmayın $x$'in 3 elemanı yanında bir de karşılık olarak $y$'nin 1 elemanı var, yani 4 boyutlu bir uzaydan bahsediyoruz)
 
@@ -169,7 +173,10 @@ $E(a, b) = \mathbf{v}^T\mathbf{v} = (Y - \hat{Y})^T(Y - \hat{Y}) = ∑_{i=1}^{N}
 
 Şimdi işleri bir adım daha ileriye taşıyalım, en başta hata fonksiyonumuzun $a$ ve $b$'ye bağlı olmasının sebebi, $g(x) = a \times x + b$ olmasıydı. Bu da en başa dönersek $D$ yani vektörlerimizin boyutu $1$ olduğu içindi. Peki ya $D$'yi de tekrar eski haline getirseydik, mesela her $x^{(i)} \in \mathbb{R}^D$ yani $D$ boyutlu birer vektör olsaydı? O zaman genel senaryoda:
 
-$x^{(i)} = \begin{bmatrix} x_1^{(i)} \\ x_2^{(i)} \\ \vdots \\ x_D^{(i)} \end{bmatrix}$ olurdu.
+```math
+x^{(i)} = \begin{bmatrix} x_1^{(i)} \\ x_2^{(i)} \\ \vdots \\ x_D^{(i)} \end{bmatrix}
+```
+olurdu.
 
 Yani artık sadece arsanın alanı değil, arsa ile ilgili çeşit çeşit bilgilere sahibiz. Peki aynı şekilde tahmin fonksiyonumuzu da genelleyemez miyiz? $g(x) = a \times x + b$ yerine:
 
@@ -251,7 +258,7 @@ Fiziksel açıklamaları geçip direkt olarak nasıl hesaplandığına bakabilir
 
 ```math
 \dfrac{\partial E(\mathbf{w})}{\partial \mathbf{w}} = \begin{bmatrix} \dfrac{\partial E(\mathbf{w})}{\partial w_1} \\ \dfrac{\partial E(\mathbf{w})}{\partial w_2} \\ \vdots \\ \dfrac{\partial E(\mathbf{w})}{\partial w_D} \end{bmatrix}
-```math
+```
 
 Tabii ki iş bunla bitmeyecek, gradyan da türev gibi toplamaya dağılabilen bir işlem o yüzden işi biraz basitleştirmek için, şunu da size verebilirim:
 
