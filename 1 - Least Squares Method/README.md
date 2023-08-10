@@ -268,7 +268,9 @@ Biraz daha ipucu isterseniz her bir terimi toplama sembolü ile yazıp daha aç�
 
 Toplama sembolü olarak nasıl yazarım derseniz bu konuda bir ipucu:
 
-$Y^TX\mathbf{w} = ∑_{i=1}^{N} ∑_{j=1}^{D} Y_i \times \mathbf{w}_j \times X_{ij}$
+```math
+Y^TX\mathbf{w} = ∑_{i=1}^{N} ∑_{j=1}^{D} Y_i \times \mathbf{w}_j \times X_{ij}
+```
 
 Eğer illa ben uğraşmak istemiyorum derseniz, asla ama asla tavsiye etmemek ile beraber, bu linkten hangi terimin türevinin nasıl alındığına bakabilirsiniz: https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf
 
