@@ -1,0 +1,1 @@
+Bu konu ile ilgili tüm materyal `notebook.ipynb` dosyasında bulunmaktadır.
